@@ -2,112 +2,160 @@
 // FRIENDSHIP BOOK JS
 // =========================
 
-const pages = document.querySelectorAll(".page");
-
-let currentPage = 0;
+document.addEventListener("DOMContentLoaded", function () {
 
 
-// Show first page
-function showPage(index) {
+    const pages = document.querySelectorAll(".page");
 
-    pages.forEach((page, i) => {
+    let currentPage = 0;
 
-        if (i === index) {
-            page.classList.add("active");
-        } 
-        else {
-            page.classList.remove("active");
+
+    // Show Page
+    function showPage(index) {
+
+        pages.forEach((page, i) => {
+
+            if (i === index) {
+
+                page.classList.add("active");
+
+            } else {
+
+                page.classList.remove("active");
+
+            }
+
+        });
+
+    }
+
+
+
+    // Next Page
+    function nextPage() {
+
+        if (currentPage < pages.length - 1) {
+
+            currentPage++;
+
+            showPage(currentPage);
+
         }
+
+    }
+
+
+
+    // Previous Page
+    function previousPage() {
+
+        if (currentPage > 0) {
+
+            currentPage--;
+
+            showPage(currentPage);
+
+        }
+
+    }
+
+
+
+    // Click Next / Previous
+
+    document.addEventListener("click", function(e) {
+
+
+        let screenWidth = window.innerWidth;
+
+
+        if (e.clientX > screenWidth / 2) {
+
+
+            nextPage();
+
+
+        } else {
+
+
+            previousPage();
+
+
+        }
+
 
     });
 
-}
 
 
-// Next page
-function nextPage() {
+    // =========================
+    // MOBILE SWIPE
+    // =========================
 
-    if (currentPage < pages.length - 1) {
 
-        currentPage++;
-        showPage(currentPage);
+    let touchStartX = 0;
+
+    let touchEndX = 0;
+
+
+
+    document.addEventListener("touchstart", function(e) {
+
+
+        touchStartX = e.changedTouches[0].screenX;
+
+
+    });
+
+
+
+    document.addEventListener("touchend", function(e) {
+
+
+        touchEndX = e.changedTouches[0].screenX;
+
+
+        handleSwipe();
+
+
+    });
+
+
+
+    function handleSwipe() {
+
+
+        // Swipe Left = Next Page
+
+        if (touchStartX - touchEndX > 50) {
+
+
+            nextPage();
+
+
+        }
+
+
+
+        // Swipe Right = Previous Page
+
+        if (touchEndX - touchStartX > 50) {
+
+
+            previousPage();
+
+
+        }
+
 
     }
 
-}
 
 
-// Previous page
-function previousPage() {
+    // Start Book From Page 1
 
-    if (currentPage > 0) {
-
-        currentPage--;
-        showPage(currentPage);
-
-    }
-
-}
+    showPage(currentPage);
 
 
-// Click next / previous
-document.addEventListener("click", function(e){
-
-    let screenWidth = window.innerWidth;
-
-    if(e.clientX > screenWidth / 2){
-
-        nextPage();
-
-    } 
-    else {
-
-        previousPage();
-
-    }
 
 });
-
-
-// Mobile swipe support
-
-let touchStartX = 0;
-let touchEndX = 0;
-
-
-document.addEventListener("touchstart", function(e){
-
-    touchStartX = e.changedTouches[0].screenX;
-
-});
-
-
-document.addEventListener("touchend", function(e){
-
-    touchEndX = e.changedTouches[0].screenX;
-
-    handleSwipe();
-
-});
-
-
-function handleSwipe(){
-
-    if(touchStartX - touchEndX > 50){
-
-        nextPage();
-
-    }
-
-
-    if(touchEndX - touchStartX > 50){
-
-        previousPage();
-
-    }
-
-}
-
-
-// Start book
-showPage(currentPage);
