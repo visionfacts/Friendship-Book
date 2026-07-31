@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
+<title>Friendship Book</title>
+
+<link rel="stylesheet"
+href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="book">
+
+<div class="page active">
+
+<h1>📖 Cover</h1>
+
+<h2>
+1314 Endlessly ❤️
+</h2>
+
+<p>
+
+For
+
+</p>
+
+<h1>
+
+Khushali 🧿🦋
+
+</h1>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
