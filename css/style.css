@@ -10,7 +10,12 @@
     padding:0;
     box-sizing:border-box;
 }
-
+.page{
+    display:none;
+}
+.page.active{
+    display:flex;
+}
 body{
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
     background: linear-gradient(135deg,#091540,#5b2c83,#0c1d55);
