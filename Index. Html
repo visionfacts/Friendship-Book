@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1314 Endlessly ❤️</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="welcome">
+
+<h1>💖 1314 Endlessly 💖</h1>
+
+<h2>Happy Friendship Day</h2>
+
+<p>
+Made with Love ❤️
+</p>
+
+<p>
+For My Best Friend
+</p>
+
+<h3>Khushali 🧿🦋</h3>
+
+<button onclick="openBook()">
+Open My Book 📖
+</button>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
