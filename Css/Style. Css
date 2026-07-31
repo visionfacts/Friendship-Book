@@ -1,0 +1,93 @@
+<div class="book">
+
+<div class="page active">
+
+<h1>📖 1314 Endlessly ❤️</h1>
+
+<p>Happy Friendship Day Khushali 🧿🦋</p>
+
+<p>Swipe ➜</p>
+
+</div>
+
+<div class="page">
+
+<h1>💖 Dear Khushali</h1>
+
+<p>
+
+Life ma ghana loko male chhe...
+
+Pan darek loko heart sudhi nathi pohnchta.
+
+Tu e person chhe jene mara ordinary days ne beautiful banavi didha.
+
+</p>
+
+</div>
+
+<div class="page">
+
+<h1>🫂 Thank You</h1>
+
+<p>
+
+"Today I needed someone...
+
+and you were there without asking."
+
+Aa words hu kyare pan bhuli nai saku.
+
+❤️
+
+</p>
+
+</div>
+
+<div class="page">
+
+<h1>😂 3 Combo 👊🏻</h1>
+
+<p>
+
+Thank you kidhu...
+
+Ane maro reply...
+
+👊🏻👊🏻👊🏻
+
+3 Combo 😎
+
+Aa moment hamesha funny raheshe.
+
+</p>
+
+</div>
+
+<div class="page">
+
+<h1>📸 Our Memories</h1>
+
+<img src="images/photo1.jpg" width="250">
+
+<p>
+
+One photo...
+
+Thousands of memories...
+
+❤️
+
+</p>
+
+</div>
+
+</div>
+
+<div class="controls">
+
+<button onclick="prevPage()">⬅</button>
+
+<button onclick="nextPage()">➡</button>
+
+</div>
