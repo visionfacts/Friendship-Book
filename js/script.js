@@ -1,104 +1,161 @@
-// ===============================
-// 1314 Endlessly ❤️
-// Friendship Book
-// Final script.js (Part 2)
-// ===============================
+// =========================
+// FRIENDSHIP BOOK JS
+// =========================
 
-// Open Book
-function openBook() {
-    window.location.href = "book.html";
-}
+document.addEventListener("DOMContentLoaded", function () {
 
-// All Pages
-const pages = document.querySelectorAll(".page");
 
-// Current Page
-let currentPage = 0;
+    const pages = document.querySelectorAll(".page");
 
-// Show Page
-function showPage() {
+    let currentPage = 0;
 
-    pages.forEach((page) => {
-        page.classList.remove("active");
+
+    // Show Page
+    function showPage(index) {
+
+        pages.forEach((page, i) => {
+
+            if (i === index) {
+
+                page.classList.add("active");
+
+            } else {
+
+                page.classList.remove("active");
+
+            }
+
+        });
+
+    }
+
+
+
+    // Next Page
+    function nextPage() {
+
+        if (currentPage < pages.length - 1) {
+
+            currentPage++;
+
+            showPage(currentPage);
+
+        }
+
+    }
+
+
+
+    // Previous Page
+    function previousPage() {
+
+        if (currentPage > 0) {
+
+            currentPage--;
+
+            showPage(currentPage);
+
+        }
+
+    }
+
+
+
+    // Click Next / Previous
+
+    document.addEventListener("click", function(e) {
+
+
+        let screenWidth = window.innerWidth;
+
+
+        if (e.clientX > screenWidth / 2) {
+
+
+            nextPage();
+
+
+        } else {
+
+
+            previousPage();
+
+
+        }
+
+
     });
 
-    pages[currentPage].classList.add("active");
 
-}
 
-// Next Page
-function nextPage() {
+    // =========================
+    // MOBILE SWIPE
+    // =========================
 
-    if (currentPage < pages.length - 1) {
 
-        currentPage++;
+    let touchStartX = 0;
 
-        showPage();
+    let touchEndX = 0;
+
+
+
+    document.addEventListener("touchstart", function(e) {
+
+
+        touchStartX = e.changedTouches[0].screenX;
+
+
+    });
+
+
+
+    document.addEventListener("touchend", function(e) {
+
+
+        touchEndX = e.changedTouches[0].screenX;
+
+
+        handleSwipe();
+
+
+    });
+
+
+
+    function handleSwipe() {
+
+
+        // Swipe Left = Next Page
+
+        if (touchStartX - touchEndX > 50) {
+
+
+            nextPage();
+
+
+        }
+
+
+
+        // Swipe Right = Previous Page
+
+        if (touchEndX - touchStartX > 50) {
+
+
+            previousPage();
+
+
+        }
+
 
     }
 
-}
 
-// Previous Page
-function prevPage() {
 
-    if (currentPage > 0) {
+    // Start Book From Page 1
 
-        currentPage--;
+    showPage(currentPage);
 
-        showPage();
 
-    }
-
-}
-
-// Keyboard Support
-document.addEventListener("keydown", function (event) {
-
-    if (event.key === "ArrowRight") {
-
-        nextPage();
-
-    }
-
-    if (event.key === "ArrowLeft") {
-
-        prevPage();
-
-    }
 
 });
-
-// Touch Swipe Support (Basic)
-let startX = 0;
-
-document.addEventListener("touchstart", function (e) {
-
-    startX = e.changedTouches[0].screenX;
-
-});
-
-document.addEventListener("touchend", function (e) {
-
-    let endX = e.changedTouches[0].screenX;
-
-    if (startX - endX > 50) {
-
-        nextPage();
-
-    }
-
-    if (endX - startX > 50) {
-
-        prevPage();
-
-    }
-
-});
-
-// Load First Page
-if (pages.length > 0) {
-
-    showPage();
-
-          }
