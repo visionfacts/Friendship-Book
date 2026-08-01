@@ -2,8 +2,7 @@
 // FRIENDSHIP BOOK JS
 // =========================
 
-document.addEventListener("DOMContentLoaded", function () {
-
+document.addEventListener("DOMContentLoaded", function(e){
 
     const pages = document.querySelectorAll(".page");
 
@@ -63,8 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Click Next / Previous
 
-    document.addEventListener("click", function(e) {
-
+ 
+document.querySelector(".book").addEventListener("click", function(e){
 
         let screenWidth = window.innerWidth;
 
@@ -99,8 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    document.addEventListener("touchstart", function(e) {
-
+document.querySelector(".book").addEventListener("touchstart", function(e){
 
         touchStartX = e.changedTouches[0].screenX;
 
@@ -109,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    document.addEventListener("touchend", function(e) {
+  document.querySelector(".book").addEventListener("touchend", function(e){
 
 
         touchEndX = e.changedTouches[0].screenX;
@@ -162,7 +160,8 @@ document.addEventListener("DOMContentLoaded", function () {
 // =========================
 
 // Keyboard Navigation
-document.addEventListener("keydown", function(e){
+
+    document.querySelector(".book").addEventListener("keydown", function(e){
 
     if(e.key === "ArrowRight"){
         nextPage();
@@ -177,8 +176,8 @@ document.addEventListener("keydown", function(e){
 // Mouse Wheel Navigation
 let wheelLock = false;
 
-document.addEventListener("wheel", function(e){
 
+document.querySelector(".book").addEventListener("wheel", function(e){
     if(wheelLock) return;
 
     wheelLock = true;
@@ -196,8 +195,8 @@ document.addEventListener("wheel", function(e){
 });
 
 // Double Click = Next Page
-document.addEventListener("dblclick", function(){
 
+document.querySelector(".book").addEventListener("dblclick", function(e){
     nextPage();
 
 });
@@ -226,8 +225,8 @@ window.addEventListener("load", () => {
 const music = document.getElementById("bgMusic");
 let musicStarted = false;
 
-document.addEventListener("click", function () {
 
+document.querySelector(".book").addEventListener("click", function(e){
     if (!musicStarted && music) {
 
         music.play().catch(() => {});
@@ -279,18 +278,17 @@ function heartBurst() {
 
 
 // Show Heart Burst On Every Page
-const oldShow = showPage;
+const originalShowPage = showPage;
 
-showPage = function(index){
+function showPage(index){
 
-    oldShow(index);
+    originalShowPage(index);
 
     heartBurst();
 
-    document.querySelectorAll(".page")[index].scrollTop = 0;
+    pages[index].scrollTop = 0;
 
-};
-
+}
 
 // Photo Click Zoom
 document.querySelectorAll(".gallery img").forEach(img => {
@@ -334,11 +332,11 @@ document.querySelectorAll(".gallery img").forEach(img => {
 
 
 // Final Page Celebration
-const oldNextPage = nextPage;
+const originalNextPage = nextPage;
 
-nextPage = function(){
+function nextPage(){
 
-    oldNextPage();
+    originalNextPage();
 
     if(currentPage === pages.length - 1 && !window.confettiDone){
 
@@ -348,7 +346,7 @@ nextPage = function(){
 
     }
 
-};
+}
 function confettiEffect(){
 
     for(let i=0;i<120;i++){
@@ -397,8 +395,8 @@ function confettiEffect(){
 
 
 // Cursor Sparkle Effect
-document.addEventListener("mousemove", function(e){
 
+document.querySelector(".book").addEventListener("mousemove", function(e){
     const star = document.createElement("div");
 
     star.innerHTML = "✨";
