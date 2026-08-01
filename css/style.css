@@ -1,7 +1,7 @@
 /* =========================
    GLOBAL
 ========================= */
-
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap');
 .title{
     font-family:'Great Vibes', cursive;
 }
@@ -12,9 +12,33 @@
 }
 .page{
     display:none;
+    width:95%;
+    max-width:700px;
+    height:90vh;
+
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:25px;
+    box-shadow:0 10px 40px rgba(0,0,0,.35);
+
+    padding:30px;
+
+    text-align:center;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    animation:fade .6s;
+
+    overflow-y:auto;
+    scrollbar-width:none;
 }
 .page.active{
     display:flex;
+}
+.page::-webkit-scrollbar{
+    display:none;
 }
 body{
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
@@ -89,37 +113,9 @@ button:hover{
    PAGE
 ========================= */
 
-.page{
-    display:none;
-    width:95%;
-    max-width:700px;
-    height:90vh;
 
-    background:rgba(255,255,255,.12);
 
-    backdrop-filter:blur(15px);
 
-    border:1px solid rgba(255,255,255,.2);
-
-    border-radius:25px;
-
-    box-shadow:0 10px 40px rgba(0,0,0,.35);
-
-    padding:30px;
-
-    text-align:center;
-
-    justify-content:center;
-
-    align-items:center;
-
-    flex-direction:column;
-
-    animation:fade .6s;
-}
-.page.active{
-    display:flex;
-}
 
 .page h1{
     color:#ff2d75;
@@ -133,15 +129,10 @@ button:hover{
 .page p{
     font-size:18px;
     line-height:30px;
-    color:#444;
+    color:white;
 }
 
-.page img{
-    width:250px;
-    border-radius:15px;
-    margin:20px 0;
-    box-shadow:0 0 15px rgba(0,0,0,.2);
-}
+
 
 /* =========================
    BUTTONS
@@ -201,46 +192,38 @@ button:hover{
    MOBILE
 ========================= */
 
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:768px){
 
-.page{
+    .page{
+        width:95%;
+        height:88vh;
+        padding:20px;
+    }
 
-width:95%;
+    .page h1{
+        font-size:28px;
+    }
 
-height:88vh;
+    .page p{
+        font-size:16px;
+        line-height:26px;
+    }
 
-padding:20px;
+    button{
+        font-size:16px;
+        padding:12px 25px;
+    }
 
-}
-
-.page h1{
-
-font-size:28px;
-
-}
-
-.page p{
-
-font-size:16px;
-
-line-height:26px;
-
-}
-
-.page img{
-
-width:200px;
+    .page img{
+        width:180px;
+    }
 
 }
 
-button{
-
-font-size:16px;
-
-padding:12px 25px;
-
-}
-}
 /* =======================
 PAGE 1
 ========================== */
@@ -375,11 +358,9 @@ margin-bottom:15px;
 }
 
 .friend-box p{
-
-font-size:18px;
-
-line-height:30px;
-
+    font-size:18px;
+    line-height:30px;
+    color:white;
 }
 
 .heart{
@@ -469,4 +450,19 @@ transform:translateX(0);
 }
 
 }
-  
+.page img{
+    width:220px;
+    height:auto;
+    border-radius:15px;
+    margin:10px;
+    object-fit:cover;
+    box-shadow:0 5px 15px rgba(0,0,0,.4);
+}
+
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin:20px 0;
+}
