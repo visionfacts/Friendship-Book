@@ -44,7 +44,8 @@ body{
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
     background: linear-gradient(135deg,#091540,#5b2c83,#0c1d55);
    position:relative;
-  overflow:hidden;
+    overflow-x:hidden;
+  overflow-y:hidden;
    min-height:100vh;
 }
 
@@ -197,6 +198,7 @@ button:hover{
         width:95%;
         height:88vh;
         padding:20px;
+       
     }
 
     .page h1{
@@ -650,4 +652,82 @@ button:hover{
 /* Page Fade */
 .page{
     animation:fade .7s ease;
+}
+/* ===========================
+   PART 3A - PREMIUM BOOK EFFECT
+=========================== */
+
+/* Book Container */
+.book{
+    perspective:1800px;
+}
+
+/* Book Page */
+.page{
+    transform-origin:left center;
+    transition:
+        transform .7s ease,
+        opacity .7s ease,
+        box-shadow .7s ease;
+}
+
+/* Active Page */
+.page.active{
+    transform:rotateY(0deg) scale(1);
+    opacity:1;
+}
+
+/* Shadow */
+.page{
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35),
+        inset 0 0 30px rgba(255,255,255,.05);
+}
+
+/* Soft Border Glow */
+.page::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:25px;
+    pointer-events:none;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:inset 0 0 40px rgba(255,255,255,.05);
+}
+
+/* Cover Page Glow */
+.cover-page{
+    box-shadow:
+        0 0 40px rgba(255,105,180,.25),
+        0 0 80px rgba(255,105,180,.12);
+}
+
+/* Gallery Images */
+.gallery img{
+    border:3px solid rgba(255,255,255,.2);
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.08);
+    border-color:#FFD700;
+}
+
+/* Text Selection */
+::selection{
+    background:#ff4d88;
+    color:#fff;
+}
+
+/* Smooth Scroll */
+html{
+    scroll-behavior:smooth;
+}
+.page{
+    will-change: transform;
+    backface-visibility: hidden;
+}
+.gallery img{
+    object-fit: cover;
+    border-radius:18px;
 }
