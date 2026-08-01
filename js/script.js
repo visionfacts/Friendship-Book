@@ -279,13 +279,15 @@ function heartBurst() {
 
 
 // Show Heart Burst On Every Page
-const oldShowPage = showPage;
+const oldShow = showPage;
 
 showPage = function(index){
 
-    oldShowPage(index);
+    oldShow(index);
 
     heartBurst();
+
+    document.querySelectorAll(".page")[index].scrollTop = 0;
 
 };
 
@@ -332,21 +334,21 @@ document.querySelectorAll(".gallery img").forEach(img => {
 
 
 // Final Page Celebration
-const oldNext = nextPage;
+const oldNextPage = nextPage;
 
 nextPage = function(){
 
-    oldNext();
+    oldNextPage();
 
-    if(currentPage === pages.length-1){
+    if(currentPage === pages.length - 1 && !window.confettiDone){
 
         confettiEffect();
+
+        window.confettiDone = true;
 
     }
 
 };
-
-
 function confettiEffect(){
 
     for(let i=0;i<120;i++){
@@ -392,23 +394,6 @@ function confettiEffect(){
 //const pageSound = new Audio("page-flip.mp3");
 //pageSound.volume = 0.4;
 
-const originalNext = nextPage;
-nextPage = function () {
-
-    pageSound.currentTime = 0;
-    pageSound.play().catch(() => {});
-
-    originalNext();
-};
-
-const originalPrev = previousPage;
-previousPage = function () {
-
-    pageSound.currentTime = 0;
-    pageSound.play().catch(() => {});
-
-    originalPrev();
-};
 
 
 // Cursor Sparkle Effect
@@ -477,14 +462,6 @@ setInterval(() => {
 },2500);
 
 
-// Auto Scroll Top On New Page
-const oldShow = showPage;
 
-showPage = function(index){
 
-    oldShow(index);
-
-    document.querySelectorAll(".page")[index].scrollTop = 0;
-
-};
 });
