@@ -34,7 +34,7 @@ body {
     padding: 20px 10px;
 }
 
-/* Floating Particle Items */
+/* Floating Particles */
 .particle {
     position: fixed;
     pointer-events: none;
@@ -54,7 +54,7 @@ body {
 }
 
 /* ==========================================
-   INDEX / WELCOME COVER STYLES
+   INDEX / WELCOME STYLES
    ========================================== */
 
 .welcome-container {
@@ -68,7 +68,7 @@ body {
     border: 3px solid #e0a96d;
     border-radius: 16px;
     padding: 35px 25px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(224, 169, 109, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
     position: relative;
     text-align: center;
     color: #fff;
@@ -82,7 +82,6 @@ body {
     height: 70px;
     background: #d4af37;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 .golden-tag {
@@ -98,20 +97,17 @@ body {
     font-family: 'Dancing Script', cursive;
     font-size: 3rem;
     color: #ffd700;
-    text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
     margin-bottom: 5px;
 }
 
 .sub-title {
     font-size: 1.4rem;
     color: #f8bbd0;
-    font-weight: 500;
 }
 
 .dedication {
     font-size: 1rem;
     color: #ffecb3;
-    margin-top: 5px;
     margin-bottom: 20px;
 }
 
@@ -129,21 +125,18 @@ body {
     font-family: 'Caveat', cursive;
     font-size: 1.6rem;
     color: #ffd700;
-    margin-bottom: 8px;
 }
 
 .letter-body {
     font-size: 0.95rem;
     line-height: 1.6;
     color: #f8bbd0;
-    margin-bottom: 12px;
 }
 
 .shayari-text {
     font-family: 'Caveat', cursive;
     font-size: 1.35rem;
     color: #ffffff;
-    line-height: 1.5;
     text-align: center;
     background: rgba(0,0,0,0.2);
     padding: 10px;
@@ -159,14 +152,7 @@ body {
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
-    transition: all 0.3s ease;
     margin-top: 15px;
-}
-
-.open-book-btn:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 12px 25px rgba(212, 175, 55, 0.6);
 }
 
 .footer-credit {
@@ -176,7 +162,7 @@ body {
 }
 
 /* ==========================================
-   FLIP BOOK REALISTIC PAGE STYLES
+   SINGLE-PAGE BOOK STYLES (PURE JS PAGE SWITCHER)
    ========================================== */
 
 .book-header {
@@ -184,7 +170,6 @@ body {
     color: #fce196;
     font-size: 2.2rem;
     margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(252, 225, 150, 0.3);
     z-index: 2;
     text-align: center;
 }
@@ -193,27 +178,54 @@ body {
     position: relative;
     z-index: 2;
     margin-bottom: 15px;
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    justify-content: center;
 }
 
-.flip-book {
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
-    border-radius: 8px;
+.book-card-container {
+    width: 100%;
+    position: relative;
+    min-height: 540px;
 }
 
-/* Journal Lined Paper Texture */
+/* Each Page Card */
+.book-page {
+    display: none; /* Hide all pages by default */
+    width: 100%;
+    min-height: 540px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    padding: 30px 25px;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: pageFadeIn 0.5s ease-in-out forwards;
+}
+
+/* Show Active Page Only */
+.book-page.active-page {
+    display: flex !important;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Journal Paper Texture */
 .journal-page {
     background: #faf3e0;
     background-image: repeating-linear-gradient(#faf3e0 0px, #faf3e0 27px, #e3d5b8 28px);
-    border-left: 2px solid #e06d6d; /* Red line like real notebook */
-    padding: 25px 20px 20px 30px !important;
-}
-
-.page {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow-y: auto;
+    border-left: 4px solid #e06d6d;
+    border-radius: 8px;
 }
 
 .cover-page {
@@ -222,16 +234,13 @@ body {
     color: #ffffff;
 }
 
-.page-content {
-    height: 100%;
-}
-
 .center-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    height: 100%;
 }
 
 .chapter-badge {
@@ -240,7 +249,6 @@ body {
     text-transform: uppercase;
     color: #b54728;
     font-weight: 700;
-    display: block;
     margin-bottom: 5px;
 }
 
@@ -295,13 +303,6 @@ body {
     font-size: 0.88rem;
     line-height: 1.5;
     color: #fff;
-    margin: 0;
-}
-
-.swipe-hint {
-    font-size: 0.85rem;
-    color: #fce196;
-    margin-top: 10px;
 }
 
 .page-heading {
@@ -360,7 +361,6 @@ body {
     font-family: 'Dancing Script', cursive;
     font-size: 2.5rem;
     color: #8c1d40;
-    margin: 0;
 }
 
 .photo-grid {
@@ -390,15 +390,19 @@ body {
     border-radius: 4px;
 }
 
-.page-footer {
+.page-footer-num {
     font-size: 0.8rem;
     color: #a08260;
     text-align: center;
-    margin-top: auto;
-    font-weight: 500;
+    margin-top: 15px;
+    font-weight: 600;
 }
 
-/* Controls & Buttons */
+.cover-page .page-footer-num {
+    color: #fce196;
+}
+
+/* Controls Container */
 .controls-container {
     display: flex;
     gap: 12px;
@@ -418,6 +422,9 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .action-btn:hover {
@@ -438,4 +445,4 @@ body {
     cursor: pointer;
     z-index: 10;
     font-size: 0.85rem;
-}
+}S
