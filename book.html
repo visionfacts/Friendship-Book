@@ -4,579 +4,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1314 Endlessly ❤️ | Khushali's Book</title>
+    <title>1314 Endlessly ❤️ | Memory Book</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- PageFlip Library CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- StPageFlip Library -->
     <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/build/js/page-flip.browser.js"></script>
     <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #2d0b1e, #521535, #3a0d2a);
-            color: #333;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
-            position: relative;
-            padding: 20px 10px;
-        }
-
-        /* Floating background particles */
-        .particle {
-            position: fixed;
-            pointer-events: none;
-            animation: floatUp 7s linear infinite;
-            opacity: 0.6;
-            z-index: 1;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(100vh) scale(0.6) rotate(0deg);
-                opacity: 0.9;
-            }
-            100% {
-                transform: translateY(-10vh) scale(1.1) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Header Title */
-        .header-title {
-            color: #ffb3c6;
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(255, 179, 198, 0.4);
-            text-align: center;
-            z-index: 2;
-        }
-
-        /* Book Container */
-        .book-wrapper {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .book {
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-            border-radius: 12px;
-            overflow: hidden;
-            background: #fff;
-        }
-
-        /* Page styling */
-        .page {
-            background: #fffafc;
-            padding: 30px 25px;
-            border: 2px solid #f8bbd0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow-y: auto;
-            position: relative;
-            box-sizing: border-box;
-        }
-
-        .cover-page {
-            background: linear-gradient(135deg, #d81b60, #ad1457);
-            color: #ffffff;
-            border: 2px solid #ff80ab;
-            text-align: center;
-        }
-
-        .cover-overlay {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-
-        .chapter {
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #d81b60;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .cover-page .chapter {
-            color: #ffe082;
-        }
-
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.2rem;
-            color: #880e4f;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
-        .cover-page h1.title {
-            font-size: 3.5rem;
-            color: #ffffff;
-            margin-bottom: 0;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-
-        .cover-page h2.subtitle {
-            font-size: 1.6rem;
-            color: #ffe082;
-            margin-bottom: 15px;
-        }
-
-        .line {
-            width: 60px;
-            height: 3px;
-            background: #ffe082;
-            margin: 10px auto 15px auto;
-            border-radius: 2px;
-        }
-
-        .friend-box {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            padding: 15px;
-            margin: 15px 0;
-            text-align: center;
-        }
-
-        .friend-box h2 {
-            font-size: 1.4rem;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-
-        .friend-box p {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: #fff8fa;
-        }
-
-        .small-text {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: #fce4ec;
-            font-style: italic;
-        }
-
-        p {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            color: #4a148c;
-            margin-bottom: 12px;
-            text-align: left;
-        }
-
-        /* Image Gallery */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-            gap: 10px;
-            margin: 12px 0;
-            width: 100%;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 2px solid #f8bbd0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Controls & Navigation */
-        .controls-bar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            z-index: 2;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
-        .nav-btn {
-            background: linear-gradient(45deg, #e91e63, #c2185b);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(233, 30, 99, 0.4);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .nav-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(233, 30, 99, 0.6);
-        }
-
-        .music-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .page-num {
-            font-size: 0.8rem;
-            color: #ad1457;
-            text-align: center;
-            margin-top: auto;
-            padding-top: 10px;
-            font-weight: 500;
-        }
-
-        @media (max-width: 600px) {
-            .header-title {
-                font-size: 1.8rem;
-            }
-            .page {
-                padding: 20px 15px;
-            }
-            p {
-                font-size: 0.88rem;
-                line-height: 1.6;
-            }
-            h1 {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
 </head>
 
-<body>
+<body class="book-body">
 
-    <!-- Floating Particles -->
+    <!-- Floating Background Particles -->
     <div id="particle-container"></div>
 
-    <!-- Music Control Button -->
-    <button class="music-toggle" id="musicBtn" onclick="toggleMusic()">🎵 Music: Off</button>
+    <!-- Top Music Control -->
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
 
-    <h2 class="header-title">Khushali's Memory Book 💖</h2>
+    <h2 class="book-header">📖 Khushali's Personal Memory Journal 💖</h2>
 
-    <div class="book-wrapper">
-        <div id="book" class="book">
+    <!-- FlipBook Wrapper -->
+    <div class="book-stage">
+        <div id="book" class="flip-book">
 
-            <!-- PAGE 1 - COVER -->
-            <div class="page cover-page" data-density="hard">
-                <div class="cover-overlay">
-                    <h3 class="chapter">CHAPTER 01</h3>
-                    <h1 class="title">1314</h1>
-                    <h2 class="subtitle">ENDLESSLY ❤️</h2>
-                    <div class="line"></div>
-                    <p class="small-text">
-                        Not every friend becomes family...<br>
+            <!-- PAGE 1: COVER -->
+            <div class="page page-hard cover-page" data-density="hard">
+                <div class="page-content center-content">
+                    <span class="chapter-badge">CHAPTER 01</span>
+                    <h1 class="book-title">1314</h1>
+                    <h2 class="book-subtitle">ENDLESSLY ❤️</h2>
+                    <div class="divider-line"></div>
+                    <p class="quote-text">
+                        "Not every friend becomes family...<br>
                         But every family doesn't become a friend.<br>
-                        You became both. 🤍
+                        You became both." 🤍
                     </p>
-                    <div class="friend-box">
-                        <h2>👭 Khushali</h2>
+                    <div class="personal-box">
+                        <h3>👭 Dedicated to Khushali</h3>
                         <p>
-                            This book is not just for Friendship Day...<br>
-                            It is every memory... every smile...<br>
-                            every late-night conversation...<br>
-                            every silent understanding...<br>
-                            that made our friendship so special. ❤️
+                            This book holds every memory, every smile, every late-night conversation, and every silent understanding that made our bond so special. ❤️
                         </p>
                     </div>
-                    <p style="font-size: 1.2rem; color: #ffe082;">⬅ Swipe or Click Next ➡</p>
+                    <span class="swipe-hint">👈 Swipe or drag page to flip 👉</span>
                 </div>
             </div>
 
             <!-- PAGE 2 -->
-            <div class="page">
-                <div>
-                    <h3 class="chapter">Chapter 02</h3>
-                    <h1>Before You Read This... 💌</h1>
-                    <p>Dear Khushali,</p>
-                    <p>
-                        This is not a normal website... and this is definitely not a simple Friendship Day gift.
+            <div class="page journal-page">
+                <div class="page-content">
+                    <span class="chapter-badge">Chapter 02</span>
+                    <h2 class="page-heading">Before You Read This... 💌</h2>
+                    <p class="handwritten-p">Dear Khushali,</p>
+                    <p class="body-p">
+                        This is not just a normal website, and definitely not just a simple Friendship Day gift.
                     </p>
-                    <p>
-                        I wanted to create something that stays with you, even after today. Something you can open anytime, read slowly, smile, laugh, or maybe even become emotional.
+                    <p class="body-p">
+                        I wanted to create something that stays with you forever. Something you can open anytime, read slowly, smile, and feel how much you mean to me.
                     </p>
-                    <p>
-                        Because our friendship deserves more than a simple "Happy Friendship Day."
+                    <p class="shayari-box">
+                        "દિલથી સાચા સંબંધો ક્યારેય નથી બદલાતા,<br>
+                        સમય બદલાય છે પણ લાગણીઓ નથી બદલાતી..." ✨
                     </p>
-                    <p>
-                        You are one of those rare people who never made me feel alone. Whenever life became confusing, your presence itself was enough. 🫂
+                    <p class="body-p">
+                        You are one of those rare people who never made me feel alone. Your presence itself is my peace. 🫂
                     </p>
                 </div>
-                <div class="page-num">Page 2</div>
+                <div class="page-footer">Page 2</div>
             </div>
 
             <!-- PAGE 3 -->
-            <div class="page">
-                <div>
-                    <h3 class="chapter">Chapter 03</h3>
-                    <h1>🌸 You Are Different</h1>
-                    <p>
+            <div class="page journal-page">
+                <div class="page-content">
+                    <span class="chapter-badge">Chapter 03</span>
+                    <h2 class="page-heading">🌸 You Are Different</h2>
+                    <p class="body-p">
                         In this world, people come and go. Some stay for days... Some stay for months... But only a few become a permanent part of our heart. You are one of them. ❤️
                     </p>
-                    <p>
+                    <p class="body-p">
                         You never tried to become special. You simply stayed... And that's what made you special.
                     </p>
-                    <p style="background: #fce4ec; padding: 10px; border-radius: 8px; color: #880e4f;">
-                        તું મારા માટે ફક્ત Best Friend નથી...<br>
-                        તું એ વ્યક્તિ છે, જેને હું કોઈપણ વાત વિચાર્યા વગર કહી શકું. એવો વિશ્વાસ દરેક મિત્રમાં હોતો નથી. 🤍
-                    </p>
+                    <div class="gujarati-card">
+                        <p>
+                            "તું મારા માટે ફક્ત Best Friend નથી...<br>
+                            તું એ વ્યક્તિ છે, જેને હું કોઈપણ વાત વિચાર્યા વગર કહી શકું. એવો વિશ્વાસ દરેક મિત્રમાં હોતો નથી." 🤍
+                        </p>
+                    </div>
                 </div>
-                <div class="page-num">Page 3</div>
+                <div class="page-footer">Page 3</div>
             </div>
 
             <!-- PAGE 4 -->
-            <div class="page">
-                <div>
-                    <h3 class="chapter">Chapter 04</h3>
-                    <h1>😂 Our Crazy Friendship</h1>
-                    <p>
-                        Every friendship has memories... Ours has madness too. 😅 Random chats... Random roasting... Unexpected calls... Late replies... And still... No distance could ever reduce our bond. 💙
+            <div class="page journal-page">
+                <div class="page-content">
+                    <span class="chapter-badge">Chapter 04</span>
+                    <h2 class="page-heading">😂 Our Crazy Friendship</h2>
+                    <p class="body-p">
+                        Every friendship has memories... Ours has madness too! 😅 Random chats, random roasting, unexpected calls, late replies... And still, no distance could ever reduce our bond. 💙
                     </p>
-                    <p>
-                        Sometimes we laugh for no reason... Sometimes we fight over silly things... But every time, our friendship becomes even stronger. ✨
+                    <p class="body-p">
+                        Sometimes we laugh for no reason, sometimes we fight over silly things... But every time, our friendship becomes even stronger. ✨
                     </p>
-                    <p>
-                        <strong>"1314 Endlessly"</strong><br>
-                        This isn't just a number. For me... it reminds me that our friendship should never end. ♾️
+                    <p class="shayari-box">
+                        "1314 Endlessly..."<br>
+                        આ ફક્ત એક નંબર નથી, મારા માટે એ યાદ અપાવે છે કે આપણી દોસ્તી ક્યારેય પૂરી ન થવી જોઈએ. ♾️
                     </p>
                 </div>
-                <div class="page-num">Page 4</div>
+                <div class="page-footer">Page 4</div>
             </div>
 
             <!-- PAGE 5 -->
-            <div class="page">
-                <div>
-                    <h3 class="chapter">Chapter 05</h3>
-                    <h1>💌 Thank You</h1>
-                    <p>
-                        There is one thing I never say enough... Thank You. Thank you for listening. Thank you for understanding. Thank you for supporting. Thank you for staying. ❤️
+            <div class="page journal-page">
+                <div class="page-content">
+                    <span class="chapter-badge">Chapter 05</span>
+                    <h2 class="page-heading">💌 Thank You</h2>
+                    <p class="body-p">
+                        There is one thing I never say enough... Thank You.
                     </p>
-                    <p>
-                        That message... "Today I needed someone and you were there..." will always stay in my heart. It reminded me that our friendship is real. 🫂
+                    <p class="body-p">
+                        Thank you for listening. Thank you for understanding. Thank you for supporting. Thank you for staying. ❤️
                     </p>
-                    <p>
-                        Thank you, Khushali. For being one of the best chapters of my life. 🌸
+                    <div class="gujarati-card">
+                        <p>
+                            "જ્યારે મને કોઈકની જરૂર હતી ત્યારે તું ત્યાં હતી..."<br>
+                            આ વાત મારા દિલમાં હંમેશા રહેશે. 🫂
+                        </p>
+                    </div>
+                    <p class="body-p">
+                        Thank you Khushali, for being one of the best chapters of my life. 🌸
                     </p>
                 </div>
-                <div class="page-num">Page 5</div>
+                <div class="page-footer">Page 5</div>
             </div>
 
             <!-- PAGE 6 -->
-            <div class="page">
-                <div>
-                    <h3 class="chapter">Chapter 06</h3>
-                    <h1>🌷 Forever Special</h1>
-                    <p>
-                        Some people enter our life... And slowly become a beautiful memory. But some people... become a forever part of our journey. ❤️
+            <div class="page journal-page">
+                <div class="page-content">
+                    <span class="chapter-badge">Chapter 06</span>
+                    <h2 class="page-heading">🌷 Forever Special</h2>
+                    <p class="body-p">
+                        Some people enter our life and slowly become a memory. But some people become a forever part of our journey. ❤️
                     </p>
-                    <p>
-                        No matter how much time passes, no matter how busy life becomes... I hope our friendship always stays the same. The same care... The same trust... The same craziness. ✨
+                    <p class="body-p">
+                        No matter how much time passes, no matter how busy life becomes... I hope our friendship always stays the same.
                     </p>
-                    <p>
-                        Because friendships like ours are not found every day. They are precious. 🤍
+                    <p class="shayari-box">
+                        "એજ કાળજી, એજ વિશ્વાસ અને એજ પાગલપન...<br>
+                        કારણ કે તમારા જેવા મિત્રો રોજે રોજ નથી મળતા!" 🤍
                     </p>
                 </div>
-                <div class="page-num">Page 6</div>
+                <div class="page-footer">Page 6</div>
             </div>
 
             <!-- PAGE 7 -->
-            <div class="page">
-                <div>
-                    <h3 class="chapter">Chapter 07</h3>
-                    <h1>🌸 A Promise</h1>
-                    <p>
-                        I don't promise that we will never fight... or never have misunderstandings.
+            <div class="page journal-page">
+                <div class="page-content">
+                    <span class="chapter-badge">Chapter 07</span>
+                    <h2 class="page-heading">🌸 A Promise</h2>
+                    <p class="body-p">
+                        I don't promise that we will never fight or never have misunderstandings...
                     </p>
-                    <p>
+                    <p class="body-p">
                         But I promise... I will always respect this friendship. I will always value the memories we created together. 🫂
                     </p>
-                    <p>
-                        Because some bonds are not about being perfect... They are about staying. ❤️
+                    <p class="shayari-box">
+                        "સંબંધો પરફેક્ટ હોવા જરૂરી નથી,<br>
+                        બસ એકબીજા સાથે ઊભા રહેવું જરૂરી છે." ❤️
                     </p>
                 </div>
-                <div class="page-num">Page 7</div>
+                <div class="page-footer">Page 7</div>
             </div>
 
             <!-- PAGE 8 -->
-            <div class="page">
-                <div>
-                    <h3 class="chapter">Chapter 08</h3>
-                    <h1>💖 Thank You Khushali</h1>
-                    <p>
-                        Thank you for being my friend. Thank you for all the smiles, all the memories, and all the moments that made life beautiful. 🌸
+            <div class="page journal-page">
+                <div class="page-content">
+                    <span class="chapter-badge">Chapter 08</span>
+                    <h2 class="page-heading">💖 Thank You Khushali</h2>
+                    <p class="body-p">
+                        Thank you for all the smiles, all the memories, and all the moments that made life beautiful. 🌸
                     </p>
-                    <p>
-                        This little book is just a reminder... That somewhere in my life, there is a person who makes friendship feel special. ❤️
+                    <p class="body-p">
+                        This little diary is just a reminder that somewhere in my life, there is a person who makes friendship feel truly special. ❤️
                     </p>
-                    <h2 style="color: #ad1457; text-align: center; margin-top: 15px;">1314 ♾️</h2>
-                    <p style="text-align: center; font-weight: 600;">Forever & Always ✨</p>
+                    <div class="center-seal">
+                        <h2>1314 ♾️</h2>
+                        <p>Forever & Always ✨</p>
+                    </div>
                 </div>
-                <div class="page-num">Page 8</div>
+                <div class="page-footer">Page 8</div>
             </div>
 
             <!-- PAGE 9 -->
-            <div class="page">
-                <div>
-                    <h3 class="chapter">Chapter 09</h3>
-                    <h1>📸 Our Memories</h1>
-                    <p>
-                        Every picture tells a story... Every smile holds a memory... And every memory reminds me how lucky I am. ❤️
+            <div class="page journal-page">
+                <div class="page-content">
+                    <span class="chapter-badge">Chapter 09</span>
+                    <h2 class="page-heading">📸 Our Memories</h2>
+                    <p class="body-p">
+                        Every picture tells a story, and every memory reminds me how lucky I am. ❤️
                     </p>
-                    <div class="gallery">
-                        <img src="photo1.jpg" alt="Memory 1">
-                        <img src="photo2.jpg" alt="Memory 2">
-                        <img src="photo3.jpg" alt="Memory 3">
+                    <div class="photo-grid">
+                        <div class="photo-frame"><img src="photo1.jpg" alt="Memory 1"></div>
+                        <div class="photo-frame"><img src="photo2.jpg" alt="Memory 2"></div>
+                        <div class="photo-frame"><img src="photo3.jpg" alt="Memory 3"></div>
                     </div>
-                    <p>Some memories fade... But ours never will. 🌸</p>
+                    <p class="body-p text-center">"Some memories fade... But ours never will." 🌸</p>
                 </div>
-                <div class="page-num">Page 9</div>
+                <div class="page-footer">Page 9</div>
             </div>
 
-            <!-- PAGE 10 - FINAL CHAPTER -->
-            <div class="page cover-page" data-density="hard">
-                <div class="cover-overlay">
-                    <h3 class="chapter" style="color: #ffe082;">FINAL CHAPTER</h3>
-                    <h1 class="title" style="font-size: 2.2rem;">❤️ Happy Friendship Day ❤️</h1>
-                    <div class="gallery">
-                        <img src="photo4.jpg" alt="Memory 4">
-                        <img src="photo5.jpg" alt="Memory 5">
+            <!-- PAGE 10 -->
+            <div class="page page-hard cover-page" data-density="hard">
+                <div class="page-content center-content">
+                    <span class="chapter-badge">FINAL CHAPTER</span>
+                    <h1 class="book-title">❤️ Happy Friendship Day ❤️</h1>
+                    <div class="photo-grid">
+                        <div class="photo-frame"><img src="photo4.jpg" alt="Memory 4"></div>
+                        <div class="photo-frame"><img src="photo5.jpg" alt="Memory 5"></div>
                     </div>
-                    <p class="small-text">
-                        Khushali... Thank you for every smile, every memory, every laugh, and every moment. ❤️
+                    <p class="quote-text">
+                        Khushali... Thank you for every smile, every memory, and every laugh. People like you are once in a lifetime. 🤍
                     </p>
-                    <h2 class="subtitle" style="margin-top: 10px;">1314 ♾️ Endlessly</h2>
-                    <p class="small-text">Made with ❤️ only for Khushali</p>
+                    <h2 class="book-subtitle">1314 ♾️ Endlessly</h2>
+                    <p class="small-text">Made with True Heart & Love ❤️ Only For Khushali</p>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <!-- Navigation Controls -->
-    <div class="controls-bar">
-        <button class="nav-btn" id="prevBtn">⬅️ Previous</button>
-        <a href="index.html" class="nav-btn">🏠 Home</a>
-        <button class="nav-btn" id="nextBtn">Next ➡️</button>
+    <!-- Navigation Bar -->
+    <div class="controls-container">
+        <button class="action-btn" id="prevBtn">⬅️ Previous</button>
+        <a href="index.html" class="action-btn home-btn">🏠 Cover</a>
+        <button class="action-btn" id="nextBtn">Next ➡️</button>
     </div>
 
     <audio id="bgMusic" loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <script>
-        // Page Flip Initialization
-        let pageFlip;
-        document.addEventListener('DOMContentLoaded', function() {
-            pageFlip = new St.PageFlip(
-                document.getElementById('book'),
-                {
-                    width: 360,
-                    height: 500,
-                    size: 'fixed',
-                    minWidth: 300,
-                    maxWidth: 450,
-                    minHeight: 420,
-                    maxHeight: 600,
-                    showCover: true,
-                    maxShadowOpacity: 0.5
-                }
-            );
-
-            pageFlip.loadFromHTML(document.querySelectorAll('.page'));
-
-            document.getElementById('prevBtn').addEventListener('click', () => {
-                pageFlip.flipPrev();
-            });
-
-            document.getElementById('nextBtn').addEventListener('click', () => {
-                pageFlip.flipNext();
-            });
-        });
-
-        // Background Music Toggle
-        const bgMusic = document.getElementById('bgMusic');
-        const musicBtn = document.getElementById('musicBtn');
-        let isPlaying = false;
-
-        function toggleMusic() {
-            if (isPlaying) {
-                bgMusic.pause();
-                musicBtn.innerText = '🎵 Music: Off';
-                isPlaying = false;
-            } else {
-                bgMusic.play().then(() => {
-                    musicBtn.innerText = '🎵 Music: On';
-                    isPlaying = true;
-                }).catch(err => {
-                    console.log("Audio play error:", err);
-                });
-            }
-        }
-
-        // Floating Hearts & Sparkles Particles
-        const container = document.getElementById('particle-container');
-        const icons = ['❤️', '💖', '✨', '🦋', '🌸', '🤍', '💕'];
-
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            particle.innerText = icons[Math.floor(Math.random() * icons.length)];
-            particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            particle.style.fontSize = (Math.random() * 14 + 14) + 'px';
-            container.appendChild(particle);
-
-            setTimeout(() => {
-                particle.remove();
-            }, 7000);
-        }
-
-        setInterval(createParticle, 450);
-    </script>
-
     <script src="js/script.js"></script>
-
 </body>
 
 </html>
