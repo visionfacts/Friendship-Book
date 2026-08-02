@@ -1,733 +1,441 @@
-/* =========================
-   GLOBAL
-========================= */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap');
-.title{
-    font-family:'Great Vibes', cursive;
-}
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-.page{
-    display:none;
-    width:95%;
-    max-width:700px;
-    height:90vh;
+/* ==========================================
+   GLOBAL & DIARY THEME STYLES
+   ========================================== */
 
-    background:rgba(255,255,255,.12);
-    backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,.2);
-    border-radius:25px;
-    box-shadow:0 10px 40px rgba(0,0,0,.35);
-
-    padding:30px;
-
-    text-align:center;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-    animation:fade .6s;
-
-    overflow-y:auto;
-    scrollbar-width:none;
-}
-.page.active{
-    display:flex;
-}
-.page::-webkit-scrollbar{
-    display:none;
-}
-body{
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg,#091540,#5b2c83,#0c1d55);
-   position:relative;
-    overflow-x:hidden;
-  overflow-y:hidden;
-   min-height:100vh;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* =========================
-   WELCOME PAGE
-========================= */
-
-.welcome{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
 }
 
-.welcome h1{
-    font-size:40px;
-    color:#ff2d75;
-    margin-bottom:15px;
+/* Background for Welcome / Index Page */
+.index-body {
+    background: linear-gradient(135deg, #2c091f, #4a1032, #1d0517);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-.welcome h2{
-    color:#444;
-    margin-bottom:10px;
+/* Background for FlipBook Page */
+.book-body {
+    background: linear-gradient(135deg, #2b0821, #481232, #180415);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 10px;
 }
 
-.welcome p{
-    margin:8px 0;
-    color:#555;
+/* Floating Particle Items */
+.particle {
+    position: fixed;
+    pointer-events: none;
+    animation: floatUp 8s linear infinite;
+    z-index: 1;
 }
 
-.welcome h3{
-    margin:20px 0;
-    color:#ff2d75;
-}
-
-button{
-    padding:15px 35px;
-    border:none;
-    border-radius:40px;
-    background:#ff4d88;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-button:hover{
-    background:#ff2d75;
-}
-
-/* =========================
-   BOOK
-========================= */
-
-
-
-/* =========================
-   PAGE
-========================= */
-
-
-
-
-
-.page h1{
-    color:#ff2d75;
-    margin-bottom:20px;
-}
-
-.page h2{
-    margin-bottom:20px;
-}
-
-.page p{
-    font-size:18px;
-    line-height:30px;
-    color:white;
-}
-
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-.controls{
-
-    position:fixed;
-
-    bottom:20px;
-
-    left:0;
-
-    width:100%;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:20px;
-
-}
-
-.controls button{
-
-    padding:12px 25px;
-
-    font-size:18px;
-
-}
-
-/* =========================
-   ANIMATION
-========================= */
-
-@keyframes fade{
-
-    from{
-
-        opacity:0;
-
-        transform:translateX(50px);
-
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(0.5) rotate(0deg);
+        opacity: 0.9;
     }
-
-    to{
-
-        opacity:1;
-
-        transform:translateX(0);
-
-    }
-
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:768px){
-
-    .page{
-        width:95%;
-        height:88vh;
-        padding:20px;
-       
-    }
-
-    .page h1{
-        font-size:28px;
-    }
-
-    .page p{
-        font-size:16px;
-        line-height:26px;
-    }
-
-    button{
-        font-size:16px;
-        padding:12px 25px;
-    }
-
-    .page img{
-        width:180px;
-    }
-
-}
-
-/* =======================
-PAGE 1
-========================== */
-
-.cover-page{
-background-attachment: fixed;
-display:flex;
-justify-content:center;
-align-items:center;
-background:
-
-linear-gradient(135deg,#091540,#5b2c83,#0c1d55);
-
-background-size:400% 400%;
-
-animation:bgMove 10s infinite;
-
-color:white;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.cover-overlay{
-
-width:100%;
-
-height:100%;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-flex-direction:column;
-
-padding:30px;
-
-text-align:center;
-
-backdrop-filter:blur(5px);
-
-}
-
-.chapter{
-
-letter-spacing:8px;
-
-font-size:14px;
-
-opacity:.8;
-
-}
-
-.title{
-
-font-size:75px;
-
-font-weight:bold;
-
-letter-spacing:4px;
-
-margin-top:20px;
-
-margin-bottom:0;
-
-color:#FFD700;
-
-text-shadow:0 0 20px rgba(255,215,0,.6);
-
-}
-
-.subtitle{
-
-font-size:28px;
-
-margin-top:0;
-
-margin-bottom:20px;
-
-}
-
-.line{
-
-width:120px;
-
-height:3px;
-
-background:white;
-
-margin:20px auto;
-
-border-radius:20px;
-
-}
-
-.small-text{
-
-font-size:20px;
-
-line-height:35px;
-
-max-width:550px;
-
-margin-bottom:30px;
-
-}
-
-.friend-box{
-
-background:rgba(255,255,255,.12);
-
-padding:25px;
-
-border-radius:25px;
-
-backdrop-filter:blur(10px);
-
-width:90%;
-
-max-width:550px;
-
-}
-
-.friend-box h2{
-
-margin-bottom:15px;
-
-}
-
-.friend-box p{
-    font-size:18px;
-    line-height:30px;
-    color:white;
-}
-
-.heart{
-
-font-size:60px;
-
-margin-top:30px;
-
-animation:heartBeat 1.5s infinite;
-
-}
-
-.swipe{
-
-margin-top:30px;
-
-font-size:18px;
-
-animation:move 1.5s infinite;
-
-}
-
-/* Background Animation */
-
-@keyframes bgMove{
-
-0%{
-
-background-position:0% 50%;
-
-}
-
-50%{
-
-background-position:100% 50%;
-
-}
-
-100%{
-
-background-position:0% 50%;
-
-}
-
-}
-
-@keyframes heartBeat{
-
-0%{
-
-transform:scale(1);
-
-}
-
-50%{
-
-transform:scale(1.15);
-
-}
-
-100%{
-
-transform:scale(1);
-
-}
-
-}
-
-@keyframes move{
-
-0%{
-
-transform:translateX(0);
-
-}
-
-50%{
-
-transform:translateX(-15px);
-
-}
-
-100%{
-
-transform:translateX(0);
-
-}
-
-}
-.page img{
-    width:220px;
-    height:auto;
-    border-radius:15px;
-    margin:10px;
-    object-fit:cover;
-    box-shadow:0 5px 15px rgba(0,0,0,.4);
-}
-
-.gallery{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-    margin:20px 0;
-}
-/* ===========================
-   FLOATING HEARTS
-=========================== */
-
-.hearts{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    pointer-events:none;
-    overflow:hidden;
-    z-index:0;
-}
-
-.hearts span{
-    position:absolute;
-    bottom:-60px;
-    font-size:28px;
-    animation:floatHeart linear infinite;
-    opacity:.8;
-}
-
-/* Position */
-
-.hearts span:nth-child(1){
-left:5%;
-animation-duration:10s;
-font-size:30px;
-}
-
-.hearts span:nth-child(2){
-left:15%;
-animation-duration:12s;
-}
-
-.hearts span:nth-child(3){
-left:28%;
-animation-duration:8s;
-font-size:34px;
-}
-
-.hearts span:nth-child(4){
-left:40%;
-animation-duration:14s;
-}
-
-.hearts span:nth-child(5){
-left:52%;
-animation-duration:11s;
-font-size:32px;
-}
-
-.hearts span:nth-child(6){
-left:64%;
-animation-duration:9s;
-}
-
-.hearts span:nth-child(7){
-left:75%;
-animation-duration:13s;
-font-size:30px;
-}
-
-.hearts span:nth-child(8){
-left:84%;
-animation-duration:10s;
-}
-
-.hearts span:nth-child(9){
-left:92%;
-animation-duration:15s;
-font-size:34px;
-}
-
-.hearts span:nth-child(10){
-left:97%;
-animation-duration:12s;
-}
-
-@keyframes floatHeart{
-
-0%{
-transform:translateY(0) rotate(0deg);
-opacity:0;
-}
-
-20%{
-opacity:1;
-}
-
-100%{
-transform:translateY(-120vh) rotate(360deg);
-opacity:0;
-}
-
-}
-
-/* ===========================
-   BOOK ABOVE HEARTS
-=========================== */
-
-.book{
-    width:100%;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-
-    position:relative;
-    z-index:2;
-}
-
-.page{
-    position:relative;
-    z-index:2;
-}
-
-/* ===========================
-   PART 2B - PREMIUM EFFECTS
-=========================== */
-
-/* Glass Hover Effect */
-.page{
-    transition:transform .5s ease, box-shadow .5s ease;
-}
-
-.page:hover{
-    transform:scale(1.01);
-    box-shadow:0 20px 50px rgba(255,255,255,.15);
-}
-
-/* Smooth Images */
-.gallery img{
-    transition:transform .4s ease, box-shadow .4s ease;
-    cursor:pointer;
-}
-
-.gallery img:hover{
-    transform:scale(1.08) rotate(-2deg);
-    box-shadow:0 10px 25px rgba(255,255,255,.35);
-}
-
-/* Button Glow */
-button{
-    box-shadow:0 0 20px rgba(255,77,136,.35);
-}
-
-button:hover{
-    box-shadow:0 0 35px rgba(255,77,136,.8);
-    transform:translateY(-2px);
-}
-
-/* Floating Animation */
-.page.active{
-    animation:fade .6s, floating 5s ease-in-out infinite;
-}
-
-@keyframes floating{
-    0%{
-        transform:translateY(0px);
-    }
-    50%{
-        transform:translateY(-6px);
-    }
-    100%{
-        transform:translateY(0px);
+    100% {
+        transform: translateY(-10vh) scale(1.2) rotate(360deg);
+        opacity: 0;
     }
 }
 
-/* Shine Effect on Title */
-.title{
-    background:linear-gradient(90deg,#FFD700,#ffffff,#FFD700);
-    background-size:200% auto;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation:shine 4s linear infinite;
+/* ==========================================
+   INDEX / WELCOME COVER STYLES
+   ========================================== */
+
+.welcome-container {
+    width: 100%;
+    max-width: 600px;
+    z-index: 2;
 }
 
-@keyframes shine{
-    to{
-        background-position:200% center;
-    }
+.diary-cover {
+    background: linear-gradient(145deg, #7a153b, #520c26);
+    border: 3px solid #e0a96d;
+    border-radius: 16px;
+    padding: 35px 25px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(224, 169, 109, 0.3);
+    position: relative;
+    text-align: center;
+    color: #fff;
 }
 
-/* Page Fade */
-.page{
-    animation:fade .7s ease;
-}
-/* ===========================
-   PART 3A - PREMIUM BOOK EFFECT
-=========================== */
-
-/* Book Container */
-.book{
-    perspective:1800px;
+.bookmark-ribbon {
+    position: absolute;
+    top: 0;
+    right: 30px;
+    width: 24px;
+    height: 70px;
+    background: #d4af37;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-/* Book Page */
-.page{
-    transform-origin:left center;
-    transition:
-        transform .7s ease,
-        opacity .7s ease,
-        box-shadow .7s ease;
+.golden-tag {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: #fce196;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
 }
 
-/* Active Page */
-.page.active{
-    transform:rotateY(0deg) scale(1);
-    opacity:1;
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #ffd700;
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+    margin-bottom: 5px;
 }
 
-/* Shadow */
-.page{
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.35),
-        inset 0 0 30px rgba(255,255,255,.05);
+.sub-title {
+    font-size: 1.4rem;
+    color: #f8bbd0;
+    font-weight: 500;
 }
 
-/* Soft Border Glow */
-.page::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:25px;
-    pointer-events:none;
-    border:1px solid rgba(255,255,255,.08);
-    box-shadow:inset 0 0 40px rgba(255,255,255,.05);
+.dedication {
+    font-size: 1rem;
+    color: #ffecb3;
+    margin-top: 5px;
+    margin-bottom: 20px;
 }
 
-/* Cover Page Glow */
-.cover-page{
-    box-shadow:
-        0 0 40px rgba(255,105,180,.25),
-        0 0 80px rgba(255,105,180,.12);
+.letter-preview {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border-left: 4px solid #fce196;
+    border-radius: 8px;
+    padding: 18px;
+    margin: 20px 0;
+    text-align: left;
 }
 
-/* Gallery Images */
-.gallery img{
-    border:3px solid rgba(255,255,255,.2);
-    transition:.4s;
+.dear-text {
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    color: #ffd700;
+    margin-bottom: 8px;
 }
 
-.gallery img:hover{
-    transform:scale(1.08);
-    border-color:#FFD700;
+.letter-body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #f8bbd0;
+    margin-bottom: 12px;
 }
 
-/* Text Selection */
-::selection{
-    background:#ff4d88;
-    color:#fff;
+.shayari-text {
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    color: #ffffff;
+    line-height: 1.5;
+    text-align: center;
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 6px;
 }
 
-/* Smooth Scroll */
-html{
-    scroll-behavior:smooth;
+.open-book-btn {
+    background: linear-gradient(45deg, #d4af37, #fce196);
+    color: #3e081c;
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s ease;
+    margin-top: 15px;
 }
-.page{
-    will-change: transform;
-    backface-visibility: hidden;
+
+.open-book-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(212, 175, 55, 0.6);
 }
-.gallery img{
+
+.footer-credit {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 20px;
+}
+
+/* ==========================================
+   FLIP BOOK REALISTIC PAGE STYLES
+   ========================================== */
+
+.book-header {
+    font-family: 'Dancing Script', cursive;
+    color: #fce196;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(252, 225, 150, 0.3);
+    z-index: 2;
+    text-align: center;
+}
+
+.book-stage {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 15px;
+}
+
+.flip-book {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+}
+
+/* Journal Lined Paper Texture */
+.journal-page {
+    background: #faf3e0;
+    background-image: repeating-linear-gradient(#faf3e0 0px, #faf3e0 27px, #e3d5b8 28px);
+    border-left: 2px solid #e06d6d; /* Red line like real notebook */
+    padding: 25px 20px 20px 30px !important;
+}
+
+.page {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+.cover-page {
+    background: linear-gradient(135deg, #6e0f31, #42081d);
+    border: 3px solid #d4af37;
+    color: #ffffff;
+}
+
+.page-content {
+    height: 100%;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.chapter-badge {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #b54728;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.cover-page .chapter-badge {
+    color: #fce196;
+}
+
+.book-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #ffd700;
+    margin: 0;
+}
+
+.book-subtitle {
+    font-size: 1.5rem;
+    color: #fce196;
+    margin-bottom: 10px;
+}
+
+.divider-line {
+    width: 60px;
+    height: 3px;
+    background: #d4af37;
+    margin: 10px 0 15px 0;
+}
+
+.quote-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #fce4ec;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.personal-box {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.personal-box h3 {
+    font-size: 1.2rem;
+    color: #ffd700;
+    margin-bottom: 6px;
+}
+
+.personal-box p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #fff;
+    margin: 0;
+}
+
+.swipe-hint {
+    font-size: 0.85rem;
+    color: #fce196;
+    margin-top: 10px;
+}
+
+.page-heading {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.1rem;
+    color: #5c0f28;
+    margin-bottom: 12px;
+}
+
+.handwritten-p {
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    color: #8c1d40;
+    margin-bottom: 8px;
+}
+
+.body-p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #2b1704;
+    margin-bottom: 12px;
+}
+
+.shayari-box {
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    background: #f0e2c3;
+    border-left: 3px solid #8c1d40;
+    padding: 10px 14px;
+    border-radius: 6px;
+    color: #4a0c1f;
+    margin: 12px 0;
+    line-height: 1.5;
+}
+
+.gujarati-card {
+    background: #fdf5e6;
+    border: 1px dashed #b8860b;
+    padding: 12px;
+    border-radius: 8px;
+    color: #5c0f28;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 12px 0;
+}
+
+.center-seal {
+    text-align: center;
+    background: rgba(140, 29, 64, 0.08);
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+.center-seal h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #8c1d40;
+    margin: 0;
+}
+
+.photo-grid {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 12px 0;
+}
+
+.photo-frame {
+    background: #fff;
+    padding: 5px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transform: rotate(-2deg);
+}
+
+.photo-frame:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.photo-frame img {
+    width: 90px;
+    height: 90px;
     object-fit: cover;
-    border-radius:18px;
+    border-radius: 4px;
+}
+
+.page-footer {
+    font-size: 0.8rem;
+    color: #a08260;
+    text-align: center;
+    margin-top: auto;
+    font-weight: 500;
+}
+
+/* Controls & Buttons */
+.controls-container {
+    display: flex;
+    gap: 12px;
+    z-index: 2;
+    margin-top: 10px;
+}
+
+.action-btn {
+    background: linear-gradient(45deg, #d4af37, #b8860b);
+    color: #2b0821;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(212, 175, 55, 0.5);
+}
+
+.music-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 0.85rem;
 }
