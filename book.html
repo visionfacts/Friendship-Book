@@ -7,8 +7,6 @@
     <title>1314 Endlessly ❤️ | Memory Book</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- StPageFlip Library -->
-    <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/build/js/page-flip.browser.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -17,17 +15,17 @@
     <!-- Floating Background Particles -->
     <div id="particle-container"></div>
 
-    <!-- Top Music Control -->
+    <!-- Music Control Button -->
     <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
 
-    <h2 class="book-header">📖 Khushali's Personal Memory Journal 💖</h2>
+    <h2 class="book-header">📖 Khushali's Memory Journal 💖</h2>
 
-    <!-- FlipBook Wrapper -->
+    <!-- Book Stage Container -->
     <div class="book-stage">
-        <div id="book" class="flip-book">
+        <div class="book-card-container">
 
             <!-- PAGE 1: COVER -->
-            <div class="page page-hard cover-page" data-density="hard">
+            <div class="book-page cover-page active-page">
                 <div class="page-content center-content">
                     <span class="chapter-badge">CHAPTER 01</span>
                     <h1 class="book-title">1314</h1>
@@ -44,12 +42,12 @@
                             This book holds every memory, every smile, every late-night conversation, and every silent understanding that made our bond so special. ❤️
                         </p>
                     </div>
-                    <span class="swipe-hint">👈 Swipe or drag page to flip 👉</span>
                 </div>
+                <div class="page-footer-num">Page 1 of 10</div>
             </div>
 
             <!-- PAGE 2 -->
-            <div class="page journal-page">
+            <div class="book-page journal-page">
                 <div class="page-content">
                     <span class="chapter-badge">Chapter 02</span>
                     <h2 class="page-heading">Before You Read This... 💌</h2>
@@ -68,11 +66,11 @@
                         You are one of those rare people who never made me feel alone. Your presence itself is my peace. 🫂
                     </p>
                 </div>
-                <div class="page-footer">Page 2</div>
+                <div class="page-footer-num">Page 2 of 10</div>
             </div>
 
             <!-- PAGE 3 -->
-            <div class="page journal-page">
+            <div class="book-page journal-page">
                 <div class="page-content">
                     <span class="chapter-badge">Chapter 03</span>
                     <h2 class="page-heading">🌸 You Are Different</h2>
@@ -89,11 +87,11 @@
                         </p>
                     </div>
                 </div>
-                <div class="page-footer">Page 3</div>
+                <div class="page-footer-num">Page 3 of 10</div>
             </div>
 
             <!-- PAGE 4 -->
-            <div class="page journal-page">
+            <div class="book-page journal-page">
                 <div class="page-content">
                     <span class="chapter-badge">Chapter 04</span>
                     <h2 class="page-heading">😂 Our Crazy Friendship</h2>
@@ -108,11 +106,11 @@
                         આ ફક્ત એક નંબર નથી, મારા માટે એ યાદ અપાવે છે કે આપણી દોસ્તી ક્યારેય પૂરી ન થવી જોઈએ. ♾️
                     </p>
                 </div>
-                <div class="page-footer">Page 4</div>
+                <div class="page-footer-num">Page 4 of 10</div>
             </div>
 
             <!-- PAGE 5 -->
-            <div class="page journal-page">
+            <div class="book-page journal-page">
                 <div class="page-content">
                     <span class="chapter-badge">Chapter 05</span>
                     <h2 class="page-heading">💌 Thank You</h2>
@@ -132,11 +130,11 @@
                         Thank you Khushali, for being one of the best chapters of my life. 🌸
                     </p>
                 </div>
-                <div class="page-footer">Page 5</div>
+                <div class="page-footer-num">Page 5 of 10</div>
             </div>
 
             <!-- PAGE 6 -->
-            <div class="page journal-page">
+            <div class="book-page journal-page">
                 <div class="page-content">
                     <span class="chapter-badge">Chapter 06</span>
                     <h2 class="page-heading">🌷 Forever Special</h2>
@@ -151,11 +149,11 @@
                         કારણ કે તમારા જેવા મિત્રો રોજે રોજ નથી મળતા!" 🤍
                     </p>
                 </div>
-                <div class="page-footer">Page 6</div>
+                <div class="page-footer-num">Page 6 of 10</div>
             </div>
 
             <!-- PAGE 7 -->
-            <div class="page journal-page">
+            <div class="book-page journal-page">
                 <div class="page-content">
                     <span class="chapter-badge">Chapter 07</span>
                     <h2 class="page-heading">🌸 A Promise</h2>
@@ -170,11 +168,11 @@
                         બસ એકબીજા સાથે ઊભા રહેવું જરૂરી છે." ❤️
                     </p>
                 </div>
-                <div class="page-footer">Page 7</div>
+                <div class="page-footer-num">Page 7 of 10</div>
             </div>
 
             <!-- PAGE 8 -->
-            <div class="page journal-page">
+            <div class="book-page journal-page">
                 <div class="page-content">
                     <span class="chapter-badge">Chapter 08</span>
                     <h2 class="page-heading">💖 Thank You Khushali</h2>
@@ -189,11 +187,11 @@
                         <p>Forever & Always ✨</p>
                     </div>
                 </div>
-                <div class="page-footer">Page 8</div>
+                <div class="page-footer-num">Page 8 of 10</div>
             </div>
 
             <!-- PAGE 9 -->
-            <div class="page journal-page">
+            <div class="book-page journal-page">
                 <div class="page-content">
                     <span class="chapter-badge">Chapter 09</span>
                     <h2 class="page-heading">📸 Our Memories</h2>
@@ -207,11 +205,11 @@
                     </div>
                     <p class="body-p text-center">"Some memories fade... But ours never will." 🌸</p>
                 </div>
-                <div class="page-footer">Page 9</div>
+                <div class="page-footer-num">Page 9 of 10</div>
             </div>
 
             <!-- PAGE 10 -->
-            <div class="page page-hard cover-page" data-density="hard">
+            <div class="book-page cover-page">
                 <div class="page-content center-content">
                     <span class="chapter-badge">FINAL CHAPTER</span>
                     <h1 class="book-title">❤️ Happy Friendship Day ❤️</h1>
@@ -225,6 +223,7 @@
                     <h2 class="book-subtitle">1314 ♾️ Endlessly</h2>
                     <p class="small-text">Made with True Heart & Love ❤️ Only For Khushali</p>
                 </div>
+                <div class="page-footer-num">Page 10 of 10</div>
             </div>
 
         </div>
@@ -232,9 +231,9 @@
 
     <!-- Navigation Bar -->
     <div class="controls-container">
-        <button class="action-btn" id="prevBtn">⬅️ Previous</button>
+        <button class="action-btn" id="prevBtn" onclick="changePage(-1)">⬅️ Previous</button>
         <a href="index.html" class="action-btn home-btn">🏠 Cover</a>
-        <button class="action-btn" id="nextBtn">Next ➡️</button>
+        <button class="action-btn" id="nextBtn" onclick="changePage(1)">Next ➡️</button>
     </div>
 
     <audio id="bgMusic" loop>
