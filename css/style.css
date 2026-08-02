@@ -162,7 +162,7 @@ body {
 }
 
 /* ==========================================
-   SINGLE-PAGE BOOK STYLES (PURE JS PAGE SWITCHER)
+   SINGLE-PAGE BOOK STYLES (CLEAN PAPER FIX)
    ========================================== */
 
 .book-header {
@@ -201,7 +201,7 @@ body {
     box-sizing: border-box;
     flex-direction: column;
     justify-content: space-between;
-    animation: pageFadeIn 0.5s ease-in-out forwards;
+    animation: pageFadeIn 0.4s ease-in-out forwards;
 }
 
 /* Show Active Page Only */
@@ -212,7 +212,7 @@ body {
 @keyframes pageFadeIn {
     from {
         opacity: 0;
-        transform: translateY(15px) scale(0.98);
+        transform: translateY(12px) scale(0.98);
     }
     to {
         opacity: 1;
@@ -220,12 +220,14 @@ body {
     }
 }
 
-/* Journal Paper Texture */
+/* CLEAN WARM IVORY PAPER (FIXED: NO LINES CUTTING TEXT) */
 .journal-page {
-    background: #faf3e0;
-    background-image: repeating-linear-gradient(#faf3e0 0px, #faf3e0 27px, #e3d5b8 28px);
-    border-left: 4px solid #e06d6d;
-    border-radius: 8px;
+    background: #fffdf5;
+    border-left: 5px solid #d81b60; /* Deep Rose Accent Border */
+    border-right: 1px solid #f0e6d6;
+    border-top: 1px solid #f0e6d6;
+    border-bottom: 1px solid #f0e6d6;
+    border-radius: 12px;
 }
 
 .cover-page {
@@ -320,7 +322,7 @@ body {
 }
 
 .body-p {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     line-height: 1.7;
     color: #2b1704;
     margin-bottom: 12px;
@@ -329,24 +331,25 @@ body {
 .shayari-box {
     font-family: 'Caveat', cursive;
     font-size: 1.35rem;
-    background: #f0e2c3;
-    border-left: 3px solid #8c1d40;
-    padding: 10px 14px;
-    border-radius: 6px;
+    background: #f7ede2;
+    border-left: 4px solid #8c1d40;
+    padding: 12px 16px;
+    border-radius: 8px;
     color: #4a0c1f;
-    margin: 12px 0;
+    margin: 14px 0;
     line-height: 1.5;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .gujarati-card {
-    background: #fdf5e6;
+    background: #fff8e7;
     border: 1px dashed #b8860b;
-    padding: 12px;
+    padding: 14px;
     border-radius: 8px;
     color: #5c0f28;
     font-size: 0.95rem;
     line-height: 1.6;
-    margin: 12px 0;
+    margin: 14px 0;
 }
 
 .center-seal {
@@ -432,6 +435,12 @@ body {
     box-shadow: 0 6px 16px rgba(212, 175, 55, 0.5);
 }
 
+.action-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
 .music-btn {
     position: fixed;
     top: 15px;
@@ -445,4 +454,4 @@ body {
     cursor: pointer;
     z-index: 10;
     font-size: 0.85rem;
-}S
+}
